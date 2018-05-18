@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Assets/images/icons/favicon.ico">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Assets/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+    <div class="limiter">
+        @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"></ul>
+                </div>
+            </div>
+        </div>*@
+        <div class="navbar-default navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    @Html.ActionLink("AudioSteg", "GetGoogleDriveFiles", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+            </div>
+            
+        </div>
+        <div class="container body-content">
+             <div class="container-table100">
+            <div class="wrap-table100">
+                    @RenderBody()
+                    <hr />
+                    <footer>
+                        <p>&copy; @DateTime.Now.Year Hoàng Anh Minh - N14DCAT018</p>
+                    </footer>
+                </div>
+            </div>
+             </div>
+        
+        </div>
+
+                <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+                <script src="~/Scripts/bootstrap.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="~/Assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="~/Assets/vendor/bootstrap/js/popper.js"></script>
+                <script src="~/Assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="~/Assets/vendor/select2/select2.min.js"></script>
+                <!--===============================================================================================-->
+                <script src="~/Assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+                <script>
+                    $('.js-pscroll').each(function () {
+                        var ps = new PerfectScrollbar(this);
+
+                        $(window).on('resize', function () {
+                            ps.update();
+                        })
+                    });
+
+
+                </script>
+                <!--===============================================================================================-->
+                <script src="~/Assets/js/main.js"></script>
+</body>
+
+</html>

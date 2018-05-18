@@ -1,0 +1,84 @@
+﻿@model IEnumerable<audiostegbyMinh.Models.GoogleDriveFiles>
+@{
+    ViewBag.Title = "Music Watermarking";
+}
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <div class="table100 ver3 m-b-110">
+           <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">Tên bài hát</th>
+                                    <th class="cell100 column2">Dung lượng</th>
+                                    <th class="cell100 column3">Phiên bản</th>
+                                    <th class="cell100 column4">Ngày tạo</th>
+                                    <th class="cell100 column5">Download</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+
+                    <div class="table100-body js-pscroll ps ps--active-y">
+                        <table>
+                            @if (Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+
+                                    <tbody>
+                                        <tr class="row100 body">
+                                            <td class="cell100 column1">
+                                                @*@Html.DisplayFor(modelItem => item.Name)*@
+                                                @{ 
+                                                    string name = @item.Name.Split('.')[0];
+                                                }
+                                                @name
+                                            </td>
+                                            <td class="cell100 column2">
+                                                @{
+                                                    long? MegaByte = @item.Size / 1048576;
+                                                    string NewSize = MegaByte + " MB";
+                                                }
+                                                @NewSize
+                                            </td>
+                                            <td class="cell100 column3">
+                                                @Html.DisplayFor(modelItem => item.Version)
+                                            </td>
+                                            <td class="cell100 column4">
+                                                @string.Format("{0: MM/dd/yyyy}", Convert.ToDateTime(Html.DisplayFor(modelItem => item.CreatedTime).ToString()))
+                                            </td>
+                                            <td class="cell100 column5">
+                                                <input type="button" class="DownloadFile" value="Download" data-key=@item.Id style="background-color:chartreuse; align-content:center" />
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                                        }
+                                                    }
+                        </table>
+                        <div class="ps__rail-x" style="left: 0px; bottom: -581px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 581px; height: 585px; right: 5px;"><div class="ps__thumb-y" tabindex="0" style="top: 292px; height: 293px;"></div></div>
+                    </div>
+                </div>
+
+<script>
+    $(document).on('click', '.DownloadFile', function () {
+        debugger;
+        var fileId = $(this).attr("data-key");
+        window.location.href = '/Home/DownloadFile/' + fileId;
+    });
+</script>
+<script>
+    $(document).on('click', '.WaterMark', function () {
+        debugger;
+        if (confirm('Bạn muốn mua nhạc?'))
+        {
+            var fileId = $(this).attr("data-key");
+            window.location.href = 'Home/MuaNhac' + fileId;
+        }
+        else {
+
+        }
+        
+    });
+</script>
+
+
