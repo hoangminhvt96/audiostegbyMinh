@@ -2,6 +2,18 @@
 @{
     ViewBag.Title = "Music Watermarking";
 }
+<style>
+    .buttonBuy{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+</style>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <div class="table100 ver3 m-b-110">
            <div class="table100-head">
@@ -10,7 +22,7 @@
                                 <tr class="row100 head">
                                     <th class="cell100 column1">Tên bài hát</th>
                                     <th class="cell100 column2">Dung lượng</th>
-                                    <th class="cell100 column3">Phiên bản</th>
+                                    <th class="cell100 column3">Nghe thử</th>
                                     <th class="cell100 column4">Ngày tạo</th>
                                     <th class="cell100 column5">Download</th>
                                 </tr>
@@ -24,11 +36,9 @@
                             {
                                 foreach (var item in Model)
                                 {
-
                                     <tbody>
                                         <tr class="row100 body">
                                             <td class="cell100 column1">
-                                                @*@Html.DisplayFor(modelItem => item.Name)*@
                                                 @{ 
                                                     string name = @item.Name.Split('.')[0];
                                                 }
@@ -42,37 +52,42 @@
                                                 @NewSize
                                             </td>
                                             <td class="cell100 column3">
-                                                @Html.DisplayFor(modelItem => item.Version)
+                                                @*@Html.DisplayFor(modelItem => item.Version)*@
+                                                @*<input type="button" class="Demo" value="Play" data-key="@item.Id" />*@
+                                                <object width="320" height="50" data="https://drive.google.com/file/d/@item.Id/preview"></object>
                                             </td>
                                             <td class="cell100 column4">
                                                 @string.Format("{0: MM/dd/yyyy}", Convert.ToDateTime(Html.DisplayFor(modelItem => item.CreatedTime).ToString()))
                                             </td>
                                             <td class="cell100 column5">
-                                                <input type="button" class="DownloadFile" value="Download" data-key=@item.Id style="background-color:chartreuse; align-content:center" />
+                                                <input type="button" class="buttonBuy" value="Mua nhạc" data-key=@item.Id />
                                             </td>
                                         </tr>
                                     </tbody>
-                                                        }
-                                                    }
+                                  }
+                              }
+                            else{
+                                <td colspan="6">No files found</td>
+                            }
                         </table>
                         <div class="ps__rail-x" style="left: 0px; bottom: -581px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 581px; height: 585px; right: 5px;"><div class="ps__thumb-y" tabindex="0" style="top: 292px; height: 293px;"></div></div>
                     </div>
                 </div>
 
 <script>
-    $(document).on('click', '.DownloadFile', function () {
+    $(document).on('click', '.buttonBuy1', function () {
         debugger;
         var fileId = $(this).attr("data-key");
         window.location.href = '/Home/DownloadFile/' + fileId;
     });
 </script>
 <script>
-    $(document).on('click', '.WaterMark', function () {
+    $(document).on('click', '.buttonBuy', function () {
         debugger;
         if (confirm('Bạn muốn mua nhạc?'))
         {
             var fileId = $(this).attr("data-key");
-            window.location.href = 'Home/MuaNhac' + fileId;
+            window.location.href = 'Home/DownloadFile/' + fileId;
         }
         else {
 
