@@ -188,6 +188,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="GoogleDriveFiles\34.wav" />
+    <Content Include="GoogleDriveFiles\Bua-Yeu-Bich-Phuong-_Lossless_FLAC_.wav" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -295,6 +297,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\audioSteg.cs" />
     <Compile Include="Models\Functions.cs" />
     <Compile Include="Models\GoogleDriveFiles.cs" />
     <Compile Include="Models\GoogleDriveFilesRepository.cs" />
@@ -310,6 +313,8 @@
     <Content Include="Views\Home\GetGoogleDriveFiles.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Check.cshtml" />
+    <Content Include="Views\Home\Checked.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -319,7 +324,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="GoogleDriveFiles\" />
+    <Folder Include="WavSteg\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

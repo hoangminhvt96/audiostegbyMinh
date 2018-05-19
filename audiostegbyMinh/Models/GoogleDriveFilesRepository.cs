@@ -158,6 +158,27 @@ namespace audiostegbyMinh.Models
             }
         }
 
+        //Check watermark from file
+        public static string checkWatermark(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                Google.Apis.Drive.v3.DriveService service = GetService();
+
+                string path = Path.Combine(HttpContext.Current.Server.MapPath("~"),
+                    Path.GetFileName(file.FileName));
+                file.SaveAs(path);
+
+                String signature = "";
+                Functions files = new Functions(new FileStream(path, FileMode.Open, FileAccess.Read));
+                audioSteg sh = new audioSteg(files);
+                signature = sh.extractMessage();
+
+                return signature;
+            }
+            return "";
+        }
+
         //Delete file from the Google drive
         public static void DeleteFile(GoogleDriveFiles files)
         {
