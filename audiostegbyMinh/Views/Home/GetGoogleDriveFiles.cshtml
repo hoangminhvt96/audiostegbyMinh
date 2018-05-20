@@ -54,7 +54,7 @@
                                             <td class="cell100 column3">
                                                 @*@Html.DisplayFor(modelItem => item.Version)*@
                                                 @*<input type="button" class="Demo" value="Play" data-key="@item.Id" />*@
-                                                <object width="320" height="50" data="https://drive.google.com/file/d/@item.Id/preview"></object>
+                                                <object width="320" height="55" data="https://drive.google.com/file/d/@item.Id/preview"></object>
                                             </td>
                                             <td class="cell100 column4">
                                                 @string.Format("{0: MM/dd/yyyy}", Convert.ToDateTime(Html.DisplayFor(modelItem => item.CreatedTime).ToString()))

@@ -9,7 +9,7 @@
 
     <br />
     <div>
-        <h2 style="color:#ffd800; background-color:#490000">KIỂM TRA BẢN QUYỀN SỐ NHẠC ĐÃ TẢI</h2>
+        <h2 style="color:#ff0000; background-color:#0bd325">CHECK WATERMARK FROM DOWNLOADED FILE</h2>
         <br />
         @using (Html.BeginForm("Checked", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
@@ -18,7 +18,7 @@
                 <br />
                 <input type="file" name="file" id="file" />
                 <br />
-                <input type="submit" value="KIỂM TRA" />
+                <input class="btn-success" type="submit" value="KIỂM TRA" />
             </p>
         }
     </div>

@@ -57,7 +57,7 @@ namespace audiostegbyMinh.Controllers
             file = new Functions(new FileStream(FilePath, FileMode.Open, FileAccess.Read));
             sh = new audioSteg(file);
 
-            message = "Copyright by Hoang Anh Minh, Download at:" + DateTime.Now.ToString("HH:mm:ss dd-MM-yyyy zzzz");
+            message = "Copyright by Hoang Anh Minh, Download at: " + DateTime.Now.ToString("HH:mm:ss dd-MM-yyyy zzzz");
             sh.waterMessage(message);
             file.writeFile(FilePath);
             //string FolderPath = System.Web.HttpContext.Current.Server.MapPath("/WavSteg/");
@@ -87,13 +87,13 @@ namespace audiostegbyMinh.Controllers
             Response.End();
             Response.Flush();
         }
-        private Stream GetMessageStream()
-        {
-            message = "Copyright by Hoang Anh Minh, Download at: " + DateTime.Now.ToString("HH:mm:ss dd-MM-yyyy zzzz");
-            BinaryWriter messageWriter = new BinaryWriter(new MemoryStream());
-            messageWriter.Write(Encoding.ASCII.GetBytes(message));
-            messageWriter.Seek(0, SeekOrigin.Begin);
-            return messageWriter.BaseStream;
-        }
+        //private Stream GetMessageStream()
+        //{
+        //    message = "Copyright by Hoang Anh Minh, Download at: " + DateTime.Now.ToString("HH:mm:ss dd-MM-yyyy zzzz");
+        //    BinaryWriter messageWriter = new BinaryWriter(new MemoryStream());
+        //    messageWriter.Write(Encoding.ASCII.GetBytes(message));
+        //    messageWriter.Seek(0, SeekOrigin.Begin);
+        //    return messageWriter.BaseStream;
+        //}
     }
 }
