@@ -86,6 +86,7 @@ namespace audiostegbyMinh.Controllers
             Response.WriteFile(System.Web.HttpContext.Current.Server.MapPath("~/GoogleDriveFiles/" + Path.GetFileName(FilePath)));
             Response.End();
             Response.Flush();
+            System.IO.File.Delete(FilePath);
         }
         //private Stream GetMessageStream()
         //{
