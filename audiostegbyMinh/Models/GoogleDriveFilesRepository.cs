@@ -24,9 +24,9 @@ namespace audiostegbyMinh.Models
         {
             //get Credentials from client_secret.json file 
             UserCredential credential;
-            using (var stream = new FileStream(@"D:\client_secret.json", FileMode.Open, FileAccess.Read))
+            using (var stream = new FileStream(@"E:\client_secret.json", FileMode.Open, FileAccess.Read))
             {
-                String FolderPath = @"D:\";
+                String FolderPath = @"E:\";
                 String FilePath = Path.Combine(FolderPath, "DriveServiceCredentials.json");
 
                 credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
